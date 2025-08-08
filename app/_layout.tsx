@@ -5,12 +5,20 @@ import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { setAudioModeAsync } from 'expo-audio';
+import { useEffect } from 'react';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
+
+  useEffect(() => {
+    setAudioModeAsync({
+      interruptionMode:"mixWithOthers",
+    })
+  })
 
   if (!loaded) {
     // Async font loading only occurs in development.

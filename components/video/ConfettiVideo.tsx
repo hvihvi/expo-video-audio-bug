@@ -8,6 +8,7 @@ export function ConfettiVideo() {
     const player = useVideoPlayer(source, (player) => {
       player.loop = false;
       player.play();
+      player.audioMixingMode = "mixWithOthers";
       player.addListener("playToEnd", () => {
         setShowConfetti(false);
       });
