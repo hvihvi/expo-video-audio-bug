@@ -7,8 +7,8 @@ export function ConfettiVideo() {
     const source = useMemo(() => require("./confettis.mp4"), []);
     const player = useVideoPlayer(source, (player) => {
       player.loop = false;
-      player.play();
       player.audioMixingMode = "mixWithOthers";
+      player.play();
       player.addListener("playToEnd", () => {
         setShowConfetti(false);
       });
